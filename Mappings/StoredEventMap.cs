@@ -8,7 +8,13 @@ namespace EventSourcing.Mappings
     {
         public void Configure(EntityTypeBuilder<StoredEvent> builder)
         {
-            throw new NotImplementedException();
+            builder.Property(c => c.timeStamp)
+                    .HasColumnName("Ngày Tạo");
+
+            builder.Property(c => c.MessageType)
+                    .HasColumnName("Hành động")
+                    .HasColumnType("nvarchar(100)");
+
         }
     }
 }

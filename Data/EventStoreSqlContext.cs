@@ -8,6 +8,10 @@ namespace EventSourcing.Data
     {
         private const string SqlConfig = "Data Source = localhost,1433;Database= EventSourcing;User ID = sa;Password = Password123 ";
 
+        public EventStoreSqlContext(DbContextOptions options) : base(options)
+        {
+        }
+
         public DbSet<StoredEvent> storedEvents {get; set;}
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
